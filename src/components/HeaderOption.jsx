@@ -25,10 +25,10 @@ const HeaderOpStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 25px;
+    margin-right: 30px;
     color: gray;
     cursor: pointer;
-    transition:all 0.5s ease;
+    transition:all 0.3s ease;
 
 :hover{
     color:black;
