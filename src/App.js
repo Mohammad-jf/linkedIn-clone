@@ -15,8 +15,6 @@ function App() {
           <SideBar/>
           <Feed/>
         </div>
-
-
         
     </div>
   );

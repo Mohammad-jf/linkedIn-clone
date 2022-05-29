@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const InputOption = ({title,Icon,color}) => {
   return (
-    <OptionStyle>
+    <OptionStyle >
        <Icon style={{color:color}}/>
        <h4>{title}</h4>
     </OptionStyle>

@@ -59,6 +59,7 @@ justify-content: space-evenly;
 align-items: center;
 border-bottom: 0.1px solid lightgray;
 z-index: 10;
+background-color: white;
 
 .header-left{
 display: flex;

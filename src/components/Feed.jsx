@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import  styled  from 'styled-components';
+// firebase
+import { db } from '../firebase';
+import firebase from 'firebase/compat/app';
+// components
 import InputOption from './InputOption';
+import Post from './Post'
 // icons
 import CreateIcon from '@mui/icons-material/Create'
 import ImageIcon from '@mui/icons-material/Image'
@@ -11,6 +16,49 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay'
 
 
 const Feed = () => {
+// state
+    const [posts,setPosts] = useState([]);
+    const [inputText,setInputText] = useState('');
+
+
+// real time listener
+    useEffect(() => {
+       db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot=>(
+           setPosts(snapshot.docs.map((doc)=>(
+               {
+                   id:doc.id,
+                   data:doc.data(),
+               }
+           )))
+       ));
+    },[]);
+
+
+// handle text input
+    const handleInput = (e)=>{
+        setInputText(e.target.value);
+    }
+
+
+// add post to the database
+ const sendPost = (e)=>{
+     e.preventDefault();
+
+     if(inputText.trim().length !== 0){
+         db.collection('posts').add({
+           name:'mohammd',
+           discription:'this is a test',
+           message:inputText,
+           photoUrl:'',
+           timestamp:firebase.firestore.FieldValue.serverTimestamp()
+         })
+         setInputText('');
+     }else{
+         alert('please write something')
+     }
+
+ }
+
   return (
     <FeedStyle>
 
@@ -20,8 +68,13 @@ const Feed = () => {
             <div className="feed-input">
                 <CreateIcon/>
                     <form >
-                       <input type="text" placeholder='Start a post' />
-                       <button type='submit'>Send</button>
+                       <input 
+                         type="text"
+                         placeholder='Start a post'
+                         onChange={handleInput} 
+                         value={inputText} 
+                         />
+                       <button onClick={sendPost} type='submit'>Send</button>
                     </form>
             </div>
 
@@ -33,8 +86,15 @@ const Feed = () => {
                 <InputOption title='Photo' Icon={CalendarViewDayIcon} color='#7fc15e' />
 
             </div>
-
         </div>
+
+        {/* posts */}
+            {posts.map(({id,data:{name,discription,message}})=>
+                <Post key={id} name={name} discription={discription} message={message}/>
+            )}
+
+       {/* <Post name='Mohammad' discription='React' message='This is from hard code'/> */}
+
     </FeedStyle>
   )
 }
