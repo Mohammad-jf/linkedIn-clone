@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import profile from '../images/Screenshot.png'
+import { useSelector } from 'react-redux';
+import { selectUser } from '../reducers/userSlice';
 // icons
 import { Avatar } from '@mui/material';
 import SideBarItem from '../components/SideBarItem'
@@ -9,14 +10,15 @@ import SideBarItem from '../components/SideBarItem'
   
 
 function SideBar() {
+  const user = useSelector(selectUser);
 
   return (
     <Sidebar>
       {/* sidebar top */}
         <div className="sidebar-top">
             <div className="background"></div>
-            <Avatar src={profile} className='sidebar-avatar'/>
-            <h2>Mohammad jalifathi</h2>
+            <Avatar src={user.photoUrl} className='sidebar-avatar'/>
+            <h2>{user.displayName}</h2>
             <h4>FrontEnd Developer</h4>
         </div>
 
@@ -95,6 +97,7 @@ height: fit-content;
 
     .sidebar-avatar{
         margin-bottom:10px;
+        object-fit: contain;
     
     }
 }
@@ -125,6 +128,7 @@ height: fit-content;
         color:#0a66c2 !important;
         font-weight: boimport SideBarItem from './SideBarItem';
     }
+
   }
 }
 

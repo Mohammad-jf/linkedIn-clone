@@ -10,11 +10,11 @@ import ShareOutLinedIcon from '@mui/icons-material/ShareOutlined'
 import SendOutLinedIcon from '@mui/icons-material/SendOutlined'
 
 
-const Post = ({name,discription,message,photoUrl}) => {
+const Post = ({name,discription,message,photo}) => {
   return (
     <PostStyle>
         <div className="post-header">
-            <Avatar/>
+            <Avatar src={photo ? photo : ''}/>
             <div className="post-info">
                 <h2>{name}</h2>
                 <p>{discription}</p>

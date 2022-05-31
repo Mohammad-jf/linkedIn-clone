@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import  styled  from 'styled-components';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../reducers/userSlice';
 // firebase
 import { db } from '../firebase';
 import firebase from 'firebase/compat/app';
@@ -16,6 +18,7 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay'
 
 
 const Feed = () => {
+    const user = useSelector(selectUser);
 // state
     const [posts,setPosts] = useState([]);
     const [inputText,setInputText] = useState('');
@@ -43,13 +46,11 @@ const Feed = () => {
 // add post to the database
  const sendPost = (e)=>{
      e.preventDefault();
-
      if(inputText.trim().length !== 0){
          db.collection('posts').add({
-           name:'mohammd',
-           discription:'this is a test',
+           name:user.displayName,
            message:inputText,
-           photoUrl:'',
+           photoUrl:user.photoUrl,
            timestamp:firebase.firestore.FieldValue.serverTimestamp()
          })
          setInputText('');
@@ -89,8 +90,8 @@ const Feed = () => {
         </div>
 
         {/* posts */}
-            {posts.map(({id,data:{name,discription,message}})=>
-                <Post key={id} name={name} discription={discription} message={message}/>
+            {posts.map(({id,data:{name,discription,message,photoUrl}})=>
+                <Post key={id} name={name} discription={discription} message={message} photo={photoUrl}/>
             )}
 
        {/* <Post name='Mohammad' discription='React' message='This is from hard code'/> */}

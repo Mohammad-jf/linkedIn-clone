@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 
 
-function HeaderOption({avatar,Icon,title}) {
+function HeaderOption({avatar,Icon,title,onclick}) {
   return (
-    <HeaderOpStyle>
+    <HeaderOpStyle onClick={onclick}>
        {Icon && <Icon className="headerOption-icon" />}
        {avatar && <Avatar src={avatar} className="headerOption-icon"/>}
        <h3 className='headerOption-title'>{title}</h3>

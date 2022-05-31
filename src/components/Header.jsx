@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import {logOut} from '../reducers/userSlice'
+import { useDispatch } from 'react-redux'
+import {auth} from '../firebase'
+import { useSelector } from 'react-redux';
+import { selectUser } from '../reducers/userSlice';
 // components
 import HeaderOption from './HeaderOption';
 // icons
@@ -12,6 +17,15 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import profile from '../images/Screenshot.png'
   
 function Header() {
+const user = useSelector(selectUser);
+const dispatch = useDispatch();
+
+// log out functionality
+  const logOutOfApp = ()=>{
+    dispatch(logOut());
+    auth.signOut();
+  }
+
   return (
     <HeaderStyle>
 
@@ -35,7 +49,7 @@ function Header() {
          <HeaderOption title='Jobs' Icon={ BusinessCenterIcon}/>
          <HeaderOption title='Messaging' Icon={ChatIcon}/>
          <HeaderOption title='Notifications' Icon={NotificationsIcon}/>
-         <HeaderOption avatar={profile} title='Me'/>
+         <HeaderOption avatar={user ? user.photoUrl : ''} title='Me' onclick={logOutOfApp}/>
 
        </div>
 
