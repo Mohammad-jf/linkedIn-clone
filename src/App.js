@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from './reducers/userSlice';
 import {auth} from './firebase'
 import {login,logOut} from './reducers/userSlice'
+import Widget from './components/Widget';
 
 
 function App() {
@@ -38,6 +39,7 @@ auth.onAuthStateChanged(userAuth=>{
           <div className="app-body">
             <SideBar/>
             <Feed/>
+            <Widget/>
           </div>
         )}
 

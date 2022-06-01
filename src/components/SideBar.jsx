@@ -19,7 +19,7 @@ function SideBar() {
             <div className="background"></div>
             <Avatar src={user.photoUrl} className='sidebar-avatar'/>
             <h2>{user.displayName}</h2>
-            <h4>FrontEnd Developer</h4>
+            <h4>{user.email}</h4>
         </div>
 
         {/* sidebar stats */}
@@ -54,7 +54,6 @@ export default SideBar
 
 
 const Sidebar = styled.div`
-margin-top: 10px;
 margin-left: 5px;
 position: sticky;
 top: 80px;
@@ -111,8 +110,7 @@ height: fit-content;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: white;
-
-
+    
  .sidebar-stat{
    margin-top:10px;
    display: flex;

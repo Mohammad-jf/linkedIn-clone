@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import  styled  from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../reducers/userSlice';
+import FlipMove from 'react-flip-move';
+
 // firebase
 import { db } from '../firebase';
 import firebase from 'firebase/compat/app';
@@ -17,14 +19,21 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay'
 
 
 
+
 const Feed = () => {
-    const user = useSelector(selectUser);
-// state
+const user = useSelector(selectUser);
+
+  // state
     const [posts,setPosts] = useState([]);
     const [inputText,setInputText] = useState('');
 
+  // handle text input
+        const handleInput = (e)=>{
+            setInputText(e.target.value);
+        }
 
-// real time listener
+
+  // real time listener
     useEffect(() => {
        db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot=>(
            setPosts(snapshot.docs.map((doc)=>(
@@ -37,12 +46,6 @@ const Feed = () => {
     },[]);
 
 
-// handle text input
-    const handleInput = (e)=>{
-        setInputText(e.target.value);
-    }
-
-
 // add post to the database
  const sendPost = (e)=>{
      e.preventDefault();
@@ -50,15 +53,17 @@ const Feed = () => {
          db.collection('posts').add({
            name:user.displayName,
            message:inputText,
-           photoUrl:user.photoUrl,
+           discription:user.email,
+           photoUrl:user.photoUrl || '',
            timestamp:firebase.firestore.FieldValue.serverTimestamp()
          })
          setInputText('');
      }else{
          alert('please write something')
      }
+    }
 
- }
+    
 
   return (
     <FeedStyle>
@@ -90,12 +95,17 @@ const Feed = () => {
         </div>
 
         {/* posts */}
+        <FlipMove>
             {posts.map(({id,data:{name,discription,message,photoUrl}})=>
-                <Post key={id} name={name} discription={discription} message={message} photo={photoUrl}/>
+                <Post 
+                 key={id} 
+                 name={name} 
+                 discription={discription} 
+                 message={message}
+                 photo={photoUrl}/>
             )}
-
-       {/* <Post name='Mohammad' discription='React' message='This is from hard code'/> */}
-
+        </FlipMove>
+      
     </FeedStyle>
   )
 }
@@ -105,7 +115,7 @@ export default Feed
 
 const FeedStyle = styled.div`
 flex: 0.6;
-margin: 10px 20px;
+margin: 0 20px;
 
 .input-container{
  background-color: white;

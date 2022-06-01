@@ -7,12 +7,14 @@ import {login} from '../reducers/userSlice'
 
 
 const Login = () => {
-
+    // states
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [name,setName] = useState('')
     const [photoUrl,setPhotoUrl] = useState('')
     const dispatch = useDispatch();
+
+
 
  //regisert functionality
   const register = ()=>{
@@ -37,6 +39,7 @@ const Login = () => {
 
   }
 
+
 // login functionality
   const loginToApp = (e)=>{
       e.preventDefault();
@@ -56,6 +59,7 @@ const Login = () => {
   return (
     <LoginStyle>
        <h2>Linked<span>in</span></h2>
+
        <form >
            <input type="text" placeholder='Full Name (require if registering)'
             value={name}  onChange={(e)=>setName(e.target.value)}/>
@@ -71,6 +75,7 @@ const Login = () => {
 
            <button type='submit' onClick={loginToApp}>Sign in</button>
        </form>
+       
        <p>Not a member? <span onClick={register}> Register now</span></p>
     </LoginStyle>
   )
@@ -83,7 +88,7 @@ export default Login
 
 const LoginStyle = styled.div`
 display: flex;
-height: 100%;
+height: 100vh;
 flex-direction: column;
 align-items: center;
 margin-top: 80px;

@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import {logOut} from '../reducers/userSlice'
 import { useDispatch } from 'react-redux'
 import {auth} from '../firebase'
-import { useSelector } from 'react-redux';
-import { selectUser } from '../reducers/userSlice';
+
 // components
 import HeaderOption from './HeaderOption';
 // icons
@@ -14,11 +13,10 @@ import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import profile from '../images/Screenshot.png'
   
 function Header() {
-const user = useSelector(selectUser);
 const dispatch = useDispatch();
+
 
 // log out functionality
   const logOutOfApp = ()=>{
@@ -26,18 +24,17 @@ const dispatch = useDispatch();
     auth.signOut();
   }
 
+
+
   return (
     <HeaderStyle>
-
        <div className="header-left">
-
             <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png" alt="LinkedIn" />
 
             <div className="header-search">
                  <SearchIcon/>
                  <input type="text" />
             </div>
-            
        </div>
 
 
@@ -49,7 +46,7 @@ const dispatch = useDispatch();
          <HeaderOption title='Jobs' Icon={ BusinessCenterIcon}/>
          <HeaderOption title='Messaging' Icon={ChatIcon}/>
          <HeaderOption title='Notifications' Icon={NotificationsIcon}/>
-         <HeaderOption avatar={user ? user.photoUrl : ''} title='Me' onclick={logOutOfApp}/>
+         <HeaderOption avatar={true} title='Me' onclick={logOutOfApp}/>
 
        </div>
 
@@ -63,7 +60,6 @@ export default Header
 
 
 const HeaderStyle = styled.div`
-
 position: sticky;
 top: 0;
 height: 70px;

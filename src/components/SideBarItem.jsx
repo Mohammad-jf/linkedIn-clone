@@ -4,22 +4,28 @@ import styled from 'styled-components';
 const SideBarItem = ({topic}) => {
   return (
     <SidebarItemStyle>
-      <span className='sidebar-hash'>#</span>
+      <p className='sidebar-hash'>#</p>
       <p>{topic}</p>
-  </SidebarItemStyle>
+    </SidebarItemStyle>
   )
 }
 
 export default SideBarItem
 
 const SidebarItemStyle = styled.div`
+  .sidebar-hash{
+    margin-right: 5px;
+    color:#0a66c2
+  }
+  
   display: flex;
-  font-size: 13px;
+  font-size: 12px;
   color: gray;
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 5px;
   padding: 5px;
+  align-items: center;
 
   :hover{
     background-color: whitesmoke;
@@ -28,7 +34,4 @@ const SidebarItemStyle = styled.div`
     color: black;
     }
 
-    .sidebar-hash{
-      margin-right: 5px;
-    }
 `
