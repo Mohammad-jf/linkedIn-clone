@@ -1,0 +1,51 @@
+[debug] [2022-06-01T02:55:55.737Z] ----------------------------------------------------------------------
+[debug] [2022-06-01T02:55:55.739Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mohammad\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-06-01T02:55:55.740Z] CLI Version:   11.0.1
+[debug] [2022-06-01T02:55:55.740Z] Platform:      win32
+[debug] [2022-06-01T02:55:55.740Z] Node Version:  v16.13.2
+[debug] [2022-06-01T02:55:55.741Z] Time:          Wed Jun 01 2022 07:25:55 GMT+0430 (Iran Daylight Time)
+[debug] [2022-06-01T02:55:55.741Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-01T02:55:55.813Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-01T02:55:55.813Z] > authorizing via signed-in user (m.h.jalifathi@gmail.com)
+[debug] [2022-06-01T02:55:55.814Z] [iam] checking project linkedin-clone-4e92b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-06-01T02:55:55.816Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/linkedin-clone-4e92b:testIamPermissions [none]
+[debug] [2022-06-01T02:55:55.816Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/linkedin-clone-4e92b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-01T02:55:57.242Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/linkedin-clone-4e92b:testIamPermissions 200
+[debug] [2022-06-01T02:55:57.243Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/linkedin-clone-4e92b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-01T02:55:57.246Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b [none]
+[debug] [2022-06-01T02:55:58.646Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b 200
+[debug] [2022-06-01T02:55:58.647Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b {"projectId":"linkedin-clone-4e92b","projectNumber":"163627791621","displayName":"LinkedIn-clone","name":"projects/linkedin-clone-4e92b","resources":{"hostingSite":"linkedin-clone-4e92b","storageBucket":"linkedin-clone-4e92b.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'linkedin-clone-4e92b'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-06-01T02:55:58.662Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b [none]
+[debug] [2022-06-01T02:55:59.859Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b 200
+[debug] [2022-06-01T02:55:59.859Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-4e92b {"projectId":"linkedin-clone-4e92b","projectNumber":"163627791621","displayName":"LinkedIn-clone","name":"projects/linkedin-clone-4e92b","resources":{"hostingSite":"linkedin-clone-4e92b","storageBucket":"linkedin-clone-4e92b.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-06-01T02:55:59.867Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions [none]
+[debug] [2022-06-01T02:55:59.868Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-06-01T02:56:01.572Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions 200
+[debug] [2022-06-01T02:56:01.572Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions {"name":"projects/163627791621/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[linkedin-clone-4e92b]: beginning deploy... 
+[info] i  hosting[linkedin-clone-4e92b]: found 11 files in build 
+[debug] [2022-06-01T02:56:01.600Z] [hosting] uploading with 200 concurrency
+[debug] [2022-06-01T02:56:02.409Z] [hosting] hash cache [YnVpbGQ] stored for 11 files
+[debug] [2022-06-01T02:56:02.410Z] [hosting][hash queue][FINAL] {"max":794,"min":5,"avg":87.45454545454545,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":806}
+[debug] [2022-06-01T02:56:02.410Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3:populateFiles [none]
+[debug] [2022-06-01T02:56:02.410Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3:populateFiles {"files":{"/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"5fcd5c559ded0c02b3ed7840ca3ee77e95b798730af98d9f18bc627ac898071e","/asset-manifest.json":"33d1b827418fe22dc5bc0d703df801097c6a9d8bc2d57ec479f9f8789370f8c1","/static/css/main.2de118f4.css":"50d7100a8332ffcab7c661807306ae497019c26745f852ef0193784839ed7890","/index.html":"92845398b4e047b89a4d8041ccd5dd59d56a5bd18bbd8c201545642077780f91","/static/css/main.2de118f4.css.map":"47c553bd24af0f519f5f7c02b2b0c2d26f67e333d36caab2b4067fd31e87fdbf","/static/js/787.7c498391.chunk.js":"e5505d6275f1e77c709abf1bd54480539deea39e960e73f31c5319c94677c581","/static/js/main.dfce2136.js.LICENSE.txt":"da6f18e7f63831ad57cf7ea165abf4bef7ec49f33eba27102e746014a2d93304","/static/js/787.7c498391.chunk.js.map":"593fb328d9a250303c81d8b7dc4704e263e21ec7920263e123ec374169db836e","/static/js/main.dfce2136.js":"6126ee2d448c7a9e0acea598b5bc9d33c88e72de72647d50f4a71a52a6a34415","/static/js/main.dfce2136.js.map":"8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254"}}
+[debug] [2022-06-01T02:56:03.908Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3:populateFiles 200
+[debug] [2022-06-01T02:56:03.908Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/163627791621/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3:populateFiles {"uploadRequiredHashes":["8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files"}
+[debug] [2022-06-01T02:56:03.909Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [none]
+[debug] [2022-06-01T02:56:03.909Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [stream]
+[debug] [2022-06-01T02:56:03.910Z] [hosting][populate queue][FINAL] {"max":1501,"min":1501,"avg":1501,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1502}
+[debug] [2022-06-01T02:56:03.910Z] [hosting] uploads queued: 1
+[debug] [2022-06-01T02:57:30.639Z] [uploadQueue] Retrying task 8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254
+[debug] [2022-06-01T02:57:30.642Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [none]
+[debug] [2022-06-01T02:57:30.643Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [stream]
+[debug] [2022-06-01T02:58:57.772Z] [uploadQueue] Retrying task 8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254
+[debug] [2022-06-01T02:58:57.775Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [none]
+[debug] [2022-06-01T02:58:57.776Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [stream]
+[debug] [2022-06-01T03:00:25.711Z] [uploadQueue] Retrying task 8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254
+[debug] [2022-06-01T03:00:25.714Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [none]
+[debug] [2022-06-01T03:00:25.714Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/linkedin-clone-4e92b/versions/7e61c0447a0e12d3/files/8e89d9657e827bd297bb4fe184c0579b60f8f5186dc213df2ebc2f2eef253254 [stream]
